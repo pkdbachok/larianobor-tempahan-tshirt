@@ -245,7 +245,38 @@
       backdrop-filter:
         blur(14px);
     }
+.event-tag {
+  display: inline-flex;
+  align-items: center;
 
+  margin-bottom: 14px;
+  padding: 9px 14px;
+
+  border:
+    1px solid
+    rgba(143, 21, 21, 0.16);
+
+  border-radius: 999px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--red-900),
+      var(--red-700)
+    );
+
+  box-shadow:
+    0 8px 20px
+    rgba(92, 9, 9, 0.18);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  text-transform: uppercase;
+}
     .hero {
       position: relative;
       background: #f5f1ee;
@@ -632,11 +663,15 @@
 
     <section class="content">
 
-      <div>
+  <div>
 
-        <h1 id="page-title">
-          Tempahan T-shirt &amp; Cap
-        </h1>
+    <div class="event-tag">
+      PKD Bachok · 2026
+    </div>
+
+    <h1 id="page-title">
+      Tempahan T-shirt &amp; Cap
+    </h1>
 
         <p class="subtitle">
           Jelajah Larian Obor
