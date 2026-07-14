@@ -734,7 +734,7 @@
           </span>
 
           <span>
-            Membuka halaman tempahan rasmi…
+            Membuka Laman Tempahan rasmi…
           </span>
 
         </div>
@@ -744,11 +744,11 @@
       <a
   class="button"
   id="order-link"
-  href="https://forms.gle/Ugr7UbdKLuJaCbtm6"
+  href="https://sites.google.com/moh.gov.my/pkdbachoklarianobor26/tempahan-t-shirt-cap"
 rel="noopener noreferrer"
 >
 
-        Buka Tempahan
+        Ke Laman Tempahan
 
         <span aria-hidden="true">
           →
@@ -773,7 +773,7 @@ rel="noopener noreferrer"
     'use strict';
 
     const targetUrl =
-      'https://forms.gle/Ugr7UbdKLuJaCbtm6';
+      'https://sites.google.com/moh.gov.my/pkdbachoklarianobor26/tempahan-t-shirt-cap';
 
     /*
      * Order closing time:
@@ -781,7 +781,7 @@ rel="noopener noreferrer"
      * Malaysia time, UTC+08:00.
      *
      * This countdown is informational only.
-     * It never disables the button or redirect.
+     * It never disables the button or redirect to the Laman Tempahan.
      */
     const closingTime =
       new Date(
@@ -848,7 +848,7 @@ rel="noopener noreferrer"
           '00';
 
         messageElement.textContent =
-          'Tarikh tutup tempahan telah tiba. Borang masih boleh dibuka untuk semakan.';
+          'Tarikh tutup tempahan telah tiba. Laman Tempahan masih boleh dibuka untuk semakan.';
 
         countdownCard.classList.add(
           'closed'
@@ -897,7 +897,7 @@ rel="noopener noreferrer"
         formatNumber(seconds);
 
       messageElement.textContent =
-        'Tempahan masih dibuka. Sila lengkapkan borang sebelum tarikh tutup.';
+        'Tempahan masih dibuka. Sila ke Laman Tempahan sebelum tarikh tutup.';
 
       countdownCard.classList.remove(
         'closed'
@@ -934,7 +934,7 @@ rel="noopener noreferrer"
      * Add ?preview=1 to inspect the landing page
      * without automatic forwarding.
      *
-     * The timer does not block the Google Form.
+     * The timer does not block the Laman Tempahan.
      */
     if (!params.has('preview')) {
       window.setTimeout(
