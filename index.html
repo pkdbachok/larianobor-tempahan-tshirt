@@ -434,7 +434,161 @@
           rotate(360deg);
       }
     }
+    .countdown-card {
+  max-width: 620px;
+  margin-top: 20px;
+  padding: 17px;
 
+  border:
+    1px solid
+    rgba(143, 21, 21, 0.13);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 250, 243, 0.96),
+      rgba(255, 240, 221, 0.92)
+    );
+
+  box-shadow:
+    0 12px 28px
+    rgba(92, 9, 9, 0.10);
+}
+
+.countdown-heading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.countdown-heading strong {
+  display: block;
+
+  color: var(--red-900);
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.countdown-heading span {
+  display: block;
+  margin-top: 2px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.countdown-dot {
+  width: 11px;
+  height: 11px;
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background: var(--orange-500);
+
+  box-shadow:
+    0 0 0 6px
+    rgba(240, 106, 19, 0.12),
+    0 0 16px
+    rgba(240, 106, 19, 0.36);
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.countdown-item {
+  min-width: 0;
+  padding: 10px 6px;
+
+  border:
+    1px solid
+    rgba(143, 21, 21, 0.11);
+
+  border-radius: 13px;
+
+  background:
+    rgba(255, 255, 255, 0.76);
+
+  text-align: center;
+}
+
+.countdown-item strong {
+  display: block;
+
+  color: var(--red-800);
+
+  font-size:
+    clamp(
+      20px,
+      3vw,
+      28px
+    );
+
+  font-variant-numeric:
+    tabular-nums;
+
+  line-height: 1;
+}
+
+.countdown-item span {
+  display: block;
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.countdown-message {
+  margin: 11px 0 0;
+
+  color: #7b6464;
+
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.countdown-card.closed {
+  border-color:
+    rgba(117, 20, 20, 0.22);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 244, 240, 0.97),
+      rgba(249, 226, 218, 0.94)
+    );
+}
+
+.countdown-card.closed
+.countdown-dot {
+  background: #8d1919;
+
+  box-shadow:
+    0 0 0 6px
+    rgba(141, 25, 25, 0.10);
+}
+
+.countdown-card.closed
+.countdown-message {
+  color: #8d1919;
+  font-weight: 800;
+}
     @media (max-width: 720px) {
       body {
         padding: 0;
@@ -453,7 +607,17 @@
 
         gap: 20px;
       }
+      .countdown-card {
+  padding: 15px;
+}
 
+.countdown {
+  gap: 6px;
+}
+
+.countdown-item {
+  padding: 9px 4px;
+}
       .button {
         width: 100%;
       }
@@ -523,6 +687,52 @@
           Jelajah Larian Obor
           Kesihatan Mental 2026
         </p>
+        <div
+  class="countdown-card"
+  aria-label="Baki masa tempahan"
+>
+  <div class="countdown-heading">
+    <span class="countdown-dot" aria-hidden="true"></span>
+
+    <div>
+      <strong>Tempahan ditutup pada 7 Ogos 2026</strong>
+      <span>11.59 malam · Waktu Malaysia</span>
+    </div>
+  </div>
+
+  <div
+    id="countdown"
+    class="countdown"
+    aria-live="polite"
+  >
+    <div class="countdown-item">
+      <strong id="countdown-days">00</strong>
+      <span>Hari</span>
+    </div>
+
+    <div class="countdown-item">
+      <strong id="countdown-hours">00</strong>
+      <span>Jam</span>
+    </div>
+
+    <div class="countdown-item">
+      <strong id="countdown-minutes">00</strong>
+      <span>Minit</span>
+    </div>
+
+    <div class="countdown-item">
+      <strong id="countdown-seconds">00</strong>
+      <span>Saat</span>
+    </div>
+  </div>
+
+  <p
+    id="countdown-message"
+    class="countdown-message"
+  >
+    Tempahan masih dibuka.
+  </p>
+</div>
 
         <div
           class="status"
@@ -542,10 +752,11 @@
       </div>
 
       <a
-        class="button"
-        id="order-link"
-        href="https://sites.google.com/moh.gov.my/pkdbachoklarianobor26/tempahan-t-shirt-cap"
-        rel="noopener noreferrer">
+  class="button"
+  id="order-link"
+  href="https://forms.gle/Ugr7UbdKLuJaCbtm6"
+  rel="noopener noreferrer"
+>
 
         Buka Tempahan
 
@@ -567,36 +778,186 @@
     </style>
   </noscript>
 
-  <script>
-    (() => {
-      'use strict';
+ <script>
+  (() => {
+    'use strict';
 
-      const targetUrl =
-        'https://sites.google.com/moh.gov.my/pkdbachoklarianobor26/tempahan-t-shirt-cap';
+    const targetUrl =
+      'https://forms.gle/Ugr7UbdKLuJaCbtm6';
 
-      const params =
-        new URLSearchParams(
-          window.location.search
+    /*
+     * Order closing time:
+     * 7 August 2026, 11:59:59 pm
+     * Malaysia time, UTC+08:00.
+     *
+     * This countdown is informational only.
+     * It never disables the button or redirect.
+     */
+    const closingTime =
+      new Date(
+        '2026-08-07T23:59:59+08:00'
+      ).getTime();
+
+    const daysElement =
+      document.getElementById(
+        'countdown-days'
+      );
+
+    const hoursElement =
+      document.getElementById(
+        'countdown-hours'
+      );
+
+    const minutesElement =
+      document.getElementById(
+        'countdown-minutes'
+      );
+
+    const secondsElement =
+      document.getElementById(
+        'countdown-seconds'
+      );
+
+    const messageElement =
+      document.getElementById(
+        'countdown-message'
+      );
+
+    const countdownCard =
+      document.querySelector(
+        '.countdown-card'
+      );
+
+
+    function formatNumber(value) {
+      return String(value).padStart(
+        2,
+        '0'
+      );
+    }
+
+
+    function updateCountdown() {
+      const now =
+        Date.now();
+
+      const remaining =
+        closingTime - now;
+
+      if (remaining <= 0) {
+        daysElement.textContent =
+          '00';
+
+        hoursElement.textContent =
+          '00';
+
+        minutesElement.textContent =
+          '00';
+
+        secondsElement.textContent =
+          '00';
+
+        messageElement.textContent =
+          'Tarikh tutup tempahan telah tiba. Borang masih boleh dibuka untuk semakan.';
+
+        countdownCard.classList.add(
+          'closed'
         );
 
-      /*
-       * Add ?preview=1 when inspecting the
-       * landing page without automatic forwarding.
-       */
-      if (
-        !params.has('preview')
-      ) {
-        window.setTimeout(
-          () => {
-            window.location.replace(
-              targetUrl
-            );
-          },
-          1400
-        );
+        return false;
       }
-    })();
-  </script>
+
+      const totalSeconds =
+        Math.floor(
+          remaining / 1000
+        );
+
+      const days =
+        Math.floor(
+          totalSeconds / 86400
+        );
+
+      const hours =
+        Math.floor(
+          (
+            totalSeconds % 86400
+          ) / 3600
+        );
+
+      const minutes =
+        Math.floor(
+          (
+            totalSeconds % 3600
+          ) / 60
+        );
+
+      const seconds =
+        totalSeconds % 60;
+
+      daysElement.textContent =
+        formatNumber(days);
+
+      hoursElement.textContent =
+        formatNumber(hours);
+
+      minutesElement.textContent =
+        formatNumber(minutes);
+
+      secondsElement.textContent =
+        formatNumber(seconds);
+
+      messageElement.textContent =
+        'Tempahan masih dibuka. Sila lengkapkan borang sebelum tarikh tutup.';
+
+      countdownCard.classList.remove(
+        'closed'
+      );
+
+      return true;
+    }
+
+
+    updateCountdown();
+
+    const countdownInterval =
+      window.setInterval(
+        () => {
+          const stillRunning =
+            updateCountdown();
+
+          if (!stillRunning) {
+            window.clearInterval(
+              countdownInterval
+            );
+          }
+        },
+        1000
+      );
+
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    /*
+     * Add ?preview=1 to inspect the landing page
+     * without automatic forwarding.
+     *
+     * The timer does not block the Google Form.
+     */
+    if (!params.has('preview')) {
+      window.setTimeout(
+        () => {
+          window.location.replace(
+            targetUrl
+          );
+        },
+        2200
+      );
+    }
+  })();
+</script>
 
 </body>
 </html>
